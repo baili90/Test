@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(n,o) {
+      console.log(o)
+      return {
+      fun:function(m){
+        console.log('return之前');
+        console.log(m,n); //这是检测代码
+        return fun(m,n);
+        console.log('return后面'); //return后的代码不执行
+    }
+  };
+}
+  var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+  //只有第一次调用的时候把0传给n了，第二次及以后n一直为0。
+  // var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+  // var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+  //问:三行a,b,c的输出分别是什么？
+
+  </script>
+</body>
+</html>
