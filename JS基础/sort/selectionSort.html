@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function selectionSort(arr){
+      const length = arr.length
+      for(let i = 0;i < length;i++){
+        let minIndex = i;
+        for(let j = i + 1;j < length;j++){
+          minIndex = arr[minIndex] <= arr[j] ? minIndex : j
+      }
+      if(minIndex !== i){
+        const temp =arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+      }
+    }
+    return arr;
+    }
+  </script>
+</body>
+</html>
